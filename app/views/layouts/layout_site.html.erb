@@ -17,18 +17,18 @@
   <body id="page-top">
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
-      <div class="row">
+      <div class="container">
         <%= link_to site_welcome_index_path, class:'navbar-brand js-scroll-trigger' do %>
           <%= image_tag 'logo', width: 60, height: 60 %> Assembleia de Deus
         <% end %>
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
-        data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
-        aria-label="Toggle navigation">
-          Menu
-          <i class="fas fa-bars"></i>
-        </button>
+          <button class="navbar-toggler navbar-toggler-right ml-auto" type="button" data-toggle="collapse"
+          data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+          aria-label="Toggle navigation">
+            Menu
+            <i class="fas fa-bars"></i>
+          </button>
       </div>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
+        <div class="collapse navbar-collapse col-sm-9" id="navbarResponsive">
           <ul class="navbar-nav text-uppercase ml-auto">
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="#home">Inicio</a>
@@ -114,7 +114,7 @@
     <!-- Portfolio Modals -->
 
     <!-- Modal 1 -->
-    <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="eventos-modal modal fade" id="eventosModal1" tabindex="-1" role="dialog" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="close-modal" data-dismiss="modal">
