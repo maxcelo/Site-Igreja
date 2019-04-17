@@ -7,6 +7,7 @@ ruby '2.6.1'
 gem 'tty-spinner'
 gem 'devise'
 gem 'faker'
+gem 'pundit'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.2'

@@ -27,39 +27,54 @@
             Menu
             <i class="fas fa-bars"></i>
           </button>
-      </div>
-        <div class="collapse navbar-collapse col-sm-9" id="navbarResponsive">
-          <ul class="navbar-nav text-uppercase ml-auto">
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#home">Inicio</a>
+          <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav text-uppercase ml-auto">
+              <li class="nav-item">
+                <a class="nav-link js-scroll-trigger" href="#home">Inicio</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link js-scroll-trigger" href="#programation">programação</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link js-scroll-trigger" href="#eventos">Eventos</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link js-scroll-trigger" href="#about">Sobre nós</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link js-scroll-trigger" href="#contact">Pedido de oração</a>
+              </li>
+              <% if user_signed_in? %>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle js-scroll-trigger" href="#" id="navbarDropdown"
+                  role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Departamentos
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#">Departamento 1</a>
+                    <a class="dropdown-item" href="#">Departamento 2</a>
+                    <a class="dropdown-item" href="#">Departamentos 3</a>
+                  </div>
+                </li>
+              <% end %>
+              <li class="nav-item">
+                <% if user_signed_in? %>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle js-scroll-trigger" href="#" id="navbarDropdown"
+                    role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <%= current_user.name %>
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <%= link_to 'Perfil', site_welcome_index_path, class:'dropdown-item' %>
+                      <%= link_to 'Sair', destroy_user_session_path, method: :delete, class:'dropdown-item' %>
+                    </div>
+                  </li>
+                <% else %>
+                  <%= link_to 'Login/Registrar', user_session_path, class:'nav-link js-scroll-trigger' %>
+                <% end %>
             </li>
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#programation">programação</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#eventos">Eventos</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#about">Sobre nós</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#contact">Pedido de oração</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle js-scroll-trigger" href="#" id="navbarDropdown"
-              role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Departamentos
-              </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">Departamento 1</a>
-                <a class="dropdown-item" href="#">Departamento 2</a>
-                <a class="dropdown-item" href="#">Departamentos 3</a>
-              </div>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#">Login/Registrar</a>
-          </li>
-        </ul>
+          </ul>
+        </div>
       </div>
     </nav>
 
