@@ -1,0 +1,6 @@
+en:
+  messages:
+    confirm_with: Do you really want to delete?
+    listing: listing %{model}
+    editing: editing %{model}
+    new: new %{model}

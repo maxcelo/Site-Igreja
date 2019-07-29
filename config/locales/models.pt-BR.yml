@@ -1,0 +1,62 @@
+'pt-BR':
+  activerecord:
+    models:
+      user:
+        one: Usuário
+        other: Usuários
+      member:
+        one: Membro
+        other: Membros  
+      address:
+        one: Endereço
+        other: Endereços
+      church:
+        one: igreja
+        other: Igrejas
+      position:
+        one: Cargo/Função
+        other: Cargos/Funções  
+    attributes:
+      user:
+        id: Código
+        name: Nome
+        email: Email
+        role: Nível de Acesso
+        password: Senha
+        password_confirmation: Confirmação da Senha
+        created_at: Criado em
+        updated_at: Atualizado em
+      member:
+        id: Código
+        num_member: Número do Membro
+        name: Nome
+        rg: RG
+        date_birth: Data de Nascimento
+        sex: Sexo
+        date_baptism: Data de Batismo
+        phone: Telefone
+        position: Cargo
+        church: Igreja
+        created_at: Criado em
+        updated_at: Atualizado em
+      address:
+        id: Código
+        street: Rua
+        neighborhood: Bairro
+        mumber: Número
+        zip_code: CEP
+        complement: Complemento
+        city: Cidade
+        state: Estado
+        created_at: Criado em
+        updated_at: Atualizado em
+      church:
+        id: Código
+        description: Descrição
+        created_at: Criado em
+        updated_at: Atualizado em
+      position:
+        id: Código
+        description: Descrição
+        created_at: Criado em
+        updated_at: Atualizado em

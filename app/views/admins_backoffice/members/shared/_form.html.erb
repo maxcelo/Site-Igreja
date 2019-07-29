@@ -1,0 +1,111 @@
+<div class="row">
+  <div class="col-lg-12">
+    <h1 class="page-header"><%= action_message %></h1>
+  </div>
+</div>
+<div class="row">
+  <% if @member.errors.any? %>
+  <div class="alert alert-danger alert-dismissable">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+    <ul>
+      <% @member.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+      <% end%>
+    </ul>
+  </div>
+  <% end %>
+  <div class="col-lg-12">
+    <div class="panel panel-default">
+      <div class="panel-heading"><%= "#{action_message}" %></div>
+      <div class="panel-body">
+        <div class="justify-content-center mb-5">
+          <div class="col-sm-12 col-md-10 col-lg-12">
+            <%= form_with(model: [:admins_backoffice, @member], local: true) do |form| %>
+              <div class="form-row">
+                <div class="form-group col-sm-3">
+                  <%= form.label :num_member %>
+                  <%= form.text_field :num_member, class:'form-control', placeholder:"Número do membro" %>
+                </div>
+                <div class="form-group col-sm-5">
+                  <%= form.label :name %>
+                  <%= form.text_field :name, class:'form-control', placeholder:"Nome Completo do membro" %>
+                </div>
+                <div class="form-group col-sm-4">
+                  <%= form.label :rg %>
+                  <%= form.text_field :rg, class:'form-control', placeholder:"Número da identidade" %>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-sm-3">
+                  <%= form.label :date_birth %>
+                  <%= form.date_field :date_birth, class:'form-control', placeholder:"Data de nascimento do membro" %>
+                </div>
+                <div class="form-group col-sm-3">
+                  <%= form.label :date_baptism %>
+                  <%= form.date_field :date_baptism, class:'form-control', placeholder:"Data de batismo do membro" %>
+                </div>
+                <div class="form-group col-sm-3">
+                  <%= form.label :sex %>
+                  <%= form.select :sex, ['Masculino', 'Feminino'], { include_blank: 'Selecione...' }, class:"form-control" %>
+                </div>
+                <div class="form-group col-sm-3">
+                  <%= form.label :phone %>
+                  <%= form.text_field :phone, class:'form-control', placeholder:"Telefone do membro" %>
+                </div>
+              </div>
+              <div class="group-row">
+                <div class="form-group col-sm-6">
+                  <%= form.label :church %>
+                  <%= form.select( "church_id", @churches_options, { include_blank: 'Selecione...' }, class:"form-control") %>
+                </div>
+                <div class="form-group col-sm-6">
+                  <%= form.label :position %>
+                  <%= form.select( "position_id", @positions_options, { include_blank: 'Selecione...' }, class:"form-control") %>
+                </div>
+              </div>
+              <%= form.fields_for :addresses do |f| %>
+                <div class="form-row">
+                  <div class="form-group col-sm-3">
+                    <%= f.label :street %>
+                    <%= f.text_field :street, class:'form-control', placeholder:"Rua" %>
+                  </div>
+                  <div class="form-group col-sm-5">
+                    <%= f.label :neighborhood %>
+                    <%= f.text_field :neighborhood, class:'form-control', placeholder:"Bairro" %>
+                  </div>
+                  <div class="form-group col-sm-4">
+                    <%= f.label :number %>
+                    <%= f.text_field :number, class:'form-control', placeholder:"Número" %>
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group col-sm-3">
+                    <%= f.label :complement %>
+                    <%= f.text_field :complement, class:'form-control', placeholder:"Complemento" %>
+                  </div>
+                  <div class="form-group col-sm-3">
+                    <%= f.label :zip_code %>
+                    <%= f.text_field :zip_code, class:'form-control', placeholder:"CEP" %>
+                  </div>
+                  <div class="form-group col-sm-3">
+                    <%= f.label :city %>
+                    <%= f.text_field :city, class:'form-control', placeholder:"Cidade" %>
+                  </div>
+                  <div class="form-group col-sm-3">
+                    <%= f.label :state %>
+                    <%= f.text_field :state, class:'form-control', placeholder:"Estado" %>
+                  </div>
+                </div>
+              <% end %>
+              <div class="form-row">
+                <div class="col-sm-12">
+                  <button type="submit" class="btn btn-success">Salvar</button>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>                
+      </div>
+    </div>
+  </div>
+</div>

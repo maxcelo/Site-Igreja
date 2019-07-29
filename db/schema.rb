@@ -10,7 +10,49 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_17_203103) do
+ActiveRecord::Schema.define(version: 2019_04_18_114737) do
+
+  create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "street"
+    t.string "neighborhood"
+    t.integer "mumber"
+    t.integer "zip_code"
+    t.string "complement"
+    t.string "city"
+    t.string "state"
+    t.bigint "member_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["member_id"], name: "index_addresses_on_member_id"
+  end
+
+  create_table "churches", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "members", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "num_member"
+    t.string "name"
+    t.bigint "rg"
+    t.date "date_birth"
+    t.string "sex"
+    t.date "date_baptism"
+    t.bigint "phone"
+    t.bigint "position_id"
+    t.bigint "church_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["church_id"], name: "index_members_on_church_id"
+    t.index ["position_id"], name: "index_members_on_position_id"
+  end
+
+  create_table "positions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -26,4 +68,7 @@ ActiveRecord::Schema.define(version: 2019_04_17_203103) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "addresses", "members"
+  add_foreign_key "members", "churches"
+  add_foreign_key "members", "positions"
 end

@@ -4,3 +4,4 @@
 //=require jqBootstrapValidation
 //=require contact_me
 //=require custom_site
+//=require bootstrap-growl-ifightcrime/jquery.bootstrap-growl

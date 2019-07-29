@@ -8,6 +8,8 @@ gem 'tty-spinner'
 gem 'devise'
 gem 'faker'
 gem 'pundit'
+gem 'rails-i18n', '~> 5.1'
+gem 'rails_db', '2.0.4'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.2'

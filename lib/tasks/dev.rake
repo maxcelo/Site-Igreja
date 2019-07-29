@@ -10,6 +10,8 @@ namespace :dev do
       show_spinner("Migrando BD...") { %x(rails db:migrate) }
       show_spinner("Adicionando admin padrão...") { %x(rails dev:add_default_admin) }
       show_spinner("Adicionando custom user...") { %x(rails dev:add_default_user) }
+      show_spinner("Adicionando igrejas...") { %x(rails dev:add_churchs) }
+      show_spinner("Adicionando positions...") { %x(rails dev:add_positions) }
       # show_spinner("xxxxxxxx...") { %x(rails dev:xxxxxxx) }
     else
       puts "Você não está em ambiente de desenvolvimento!"
@@ -37,6 +39,27 @@ namespace :dev do
       password_confirmation: DEFAULT_PASSWORD
     )
   end
+
+  desc "Adiciona cargos"
+  task add_churchs: :environment do
+    file_name = 'positions.txt'
+    file_path = File.join(DEFAULT_FILES_PATH, file_name)
+    
+    File.open(file_path, 'r').each do |line|
+      Position.create!(description: line.strip)
+    end
+  end
+
+  desc "Adiciona igrejas"
+  task add_positions: :environment do
+    file_name = 'churches.txt'
+    file_path = File.join(DEFAULT_FILES_PATH, file_name)
+    
+    File.open(file_path, 'r').each do |line|
+      Church.create!(description: line.strip)
+    end
+  end
+
 
   private
   

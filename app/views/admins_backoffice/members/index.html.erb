@@ -1,0 +1,44 @@
+<div class="row">
+  <div class="col-lg-12">
+    <h1 class="page-header"><%= t('messages.listing', model: @members.model_name.human(count: 2)) %></h1>
+  </div>
+</div>
+<div class="table-responsive">
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+        <th><%= translate_attribute(@members, :num_member) %></th>
+        <th><%= translate_attribute(@members, :name) %></th>
+        <th><%= translate_attribute(@members, :phone) %></th>
+        <th><%= translate_attribute(@members, :position) %></th>
+        <th><%= translate_attribute(@members, :church) %></th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @members.each do |member| %>
+        <tr>
+          <td style="width: 150px"><%= member.num_member %></td>
+          <td><%= member.name %></td>
+          <td style="width: 100px"><%= member.phone %></td>
+          <td><%= member.position.description %></td>
+          <td><%= member.church.description %></td>
+          <td style="width: 115px">
+            <%= link_to edit_admins_backoffice_member_path(member), class:'btn btn-success btn-circle',
+            data: {toggle:"tooltip", placement:"bottom"},  title:"Visualizar" do %>
+              <i class="fa fa-list-alt"></i>
+            <% end %>
+            <%= link_to edit_admins_backoffice_member_path(member), class:'btn btn-primary btn-circle',
+            data: {toggle:"tooltip", placement:"bottom"},  title:"Editar" do %>
+              <i class="fa fa-edit"></i>
+            <% end %>
+            <%= link_to admins_backoffice_member_path(member), method: :delete, class:"btn btn-danger btn-circle",
+            data: { confirm: t('messages.confirm_with'), toggle:"tooltip", placement:"bottom" }, title:"Apagar"  do %>
+              <i class="fa fa-trash-o"></i>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

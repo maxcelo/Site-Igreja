@@ -1,0 +1,61 @@
+en:
+  activerecord:
+    models:
+      user:
+        one: user
+        other: Users
+      member:
+        one: Member
+        other: Members  
+      address:
+        one: Address
+        other: Addresses
+      church:
+        one: Church
+        other: Churches
+      position:
+        one: Position
+        other: Positions  
+    attributes:
+      user:
+        id: Code
+        name: Name
+        email: Email
+        role: Role
+        password: Password
+        password_confirmation: Password Confirmation
+        created_at: Created at
+        updated_at: Updated at
+      member:
+        id: Code
+        num_member: Number of Member
+        name: Name
+        date_birth: Date of birth
+        sex: Sex
+        date_baptism: Date of baptism
+        phone: Phone
+        position_id: position
+        church_id: Church
+        created_at: Created at
+        updated_at: Updated at
+      address:
+        id: Code
+        street: Street
+        neighborhood: Neighborhood
+        mumber: Number
+        zip_code: Zip_Code
+        complement: Complement
+        city: City
+        state: State
+        created_at: Created at
+        updated_at: Updated at
+      church:
+        id: Code
+        description: Description
+        created_at: Created at
+        updated_at: Updated at
+      position:
+        id: Code
+        description: Description
+        created_at: Created at
+        updated_at: Updated at
